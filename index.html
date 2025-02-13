@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1>
-            
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,14 +15,17 @@
       />
       <p class="title">Heyy, do you want a valentines gift? 😦</p>
       <div class="buttons">
-        <button type="button" class="btn btn-yes">Yes</button>
-        <button type="button" class="btn btn-no">No</button>
+        <button type="button" class="btn btn-yes" onclick="sendResponse('Yes')">Yes</button>
+        <button type="button" class="btn btn-no" onclick="sendResponse('No')">No</button>
       </div>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+      function sendResponse(choice) {
+          fetch("https://script.google.com/macros/s/AKfycbx9BfWesYiY0-IN6ANUMfvK95UqBauNIfDxR9zO-s7T0SC024KkmUx-nRZV9DIDGyEq/exec?choice=" + choice)
+              .then(response => console.log("Response recorded"))
+              .catch(error => console.error("Error:", error));
+      }
+    </script>
   </body>
 </html>
-        </h1>
-    </body>
-</html>  
