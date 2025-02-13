@@ -20,19 +20,14 @@
       </div>
       
       <!-- Spotify Embed with Click-to-Play Button -->
-      <button onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
+      <a href="https://open.spotify.com/track/0jcw8cJf3TNMZN0BXlueML" target="_blank">
+        <button class="btn btn-spotify">Play on Spotify</button>
+      </a>
       <iframe id="spotifyPlayer" 
         src="https://open.spotify.com/embed/track/0jcw8cJf3TNMZN0BXlueML" 
-        width="300" height="80" frameborder="0" allow="autoplay" allow="encrypted-media">
+        width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
       </iframe>
     </main>
-
-    <script>
-      function playSpotify() {
-        let iframe = document.getElementById("spotifyPlayer");
-        iframe.src += "&autoplay=1"; // Reloads with autoplay enabled
-      }
-    </script>
     
     <script src="script.js"></script>
   </body>
