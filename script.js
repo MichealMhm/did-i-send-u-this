@@ -14,6 +14,7 @@ const btnContainer = document.querySelector(".buttons");
 const yesBtn = document.querySelector(".btn-yes");
 const noBtn = document.querySelector(".btn-no");
 const img = document.querySelector(".img");
+const spotifyIframe = document.getElementById("spotifyPlayer");
 
 const MAX_IMAGES = 5;
 let play = true;
@@ -25,6 +26,7 @@ yesBtn.addEventListener("click", () => {
   title.innerHTML = "YYAAAAYYY!!! Now go back to discord :p";
   btnContainer.classList.add("hidden");
   changeImage("yes");
+  playSpotify();
 });
 
 noBtn.addEventListener("click", () => {
@@ -70,4 +72,11 @@ function changeImage(image) {
 
 function updateNoButtonText() {
   noBtn.innerHTML = generateMessage(noCount);
+}
+
+function playSpotify() {
+  if (spotifyIframe) {
+    let src = spotifyIframe.src.split("?")[0]; // Remove existing query params
+    spotifyIframe.src = `${src}?autoplay=1&mute=0`; // Reload with autoplay enabled
+  }
 }
