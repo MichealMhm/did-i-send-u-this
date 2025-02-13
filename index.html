@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1>
-            
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,11 +18,22 @@
         <button type="button" class="btn btn-yes">Yes</button>
         <button type="button" class="btn btn-no">No</button>
       </div>
+      
+      <!-- Spotify Embed with Click-to-Play Button -->
+      <button onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
+      <iframe id="spotifyPlayer" 
+        src="https://open.spotify.com/embed/track/e878a5f10db64742?utm_source=generator" 
+        width="300" height="80" frameborder="0" allow="autoplay; encrypted-media">
+      </iframe>
     </main>
 
+    <script>
+      function playSpotify() {
+        let iframe = document.getElementById("spotifyPlayer");
+        iframe.src += "&autoplay=1"; // Reloads with autoplay enabled
+      }
+    </script>
+    
     <script src="script.js"></script>
   </body>
 </html>
-        </h1>
-    </body>
-</html>  
