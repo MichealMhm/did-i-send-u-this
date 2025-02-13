@@ -1,82 +1,43 @@
-"use strict";
-
-const tontonGifs = [
-  "https://media.tenor.com/TUVAE2M_wz4AAAAi/chubby-tonton.gif",
-  "https://media.tenor.com/pZk_U5JVWzUAAAAi/tonton-friends-tonton.gif",
-  "https://media.tenor.com/Jkha__Yjf0oAAAAi/sad-depression.gif",
-  "https://media.tenor.com/U0OPHZokzkUAAAAi/what-seriously.gif",
-  "https://media.tenor.com/WKXMmSk3JJsAAAAi/chubby-tonton.gif",
-  "https://media.tenor.com/ZHWV13jliTAAAAAi/chubby-tonton.gif",
-];
-
-const title = document.querySelector(".title");
-const btnContainer = document.querySelector(".buttons");
-const yesBtn = document.querySelector(".btn-yes");
-const noBtn = document.querySelector(".btn-no");
-const img = document.querySelector(".img");
-const spotifyIframe = document.getElementById("spotifyPlayer");
-
-const MAX_IMAGES = 5;
-let play = true;
-let noCount = 0;
-let noButtonSize = 1;
-let yesButtonSize = 1;
-
-yesBtn.addEventListener("click", () => {
-  title.innerHTML = "YYAAAAYYY!!! Now go back to discord :p";
-  btnContainer.classList.add("hidden");
-  changeImage("yes");
-  playSpotify();
-});
-
-noBtn.addEventListener("click", () => {
-  if (play) {
-    noCount++;
-    const imageIndex = Math.min(noCount, MAX_IMAGES);
-    changeImage(imageIndex);
-    resizeYesButton();
-    shrinkNoButton();
-    updateNoButtonText();
-    if (noCount === MAX_IMAGES) play = false;
-  }
-});
-
-function resizeYesButton() {
-  yesButtonSize *= 1.2;
-  yesBtn.style.transform = `scale(${yesButtonSize})`;
-}
-
-function shrinkNoButton() {
-  noButtonSize *= 0.90;
-  noBtn.style.transform = `scale(${noButtonSize})`;
-}
-
-function generateMessage(noCount) {
-  const messages = [
-    "No 😔",
-    "Are you sure? 🥺",
-    "Please? 🥹",
-    "Don't do this to me 😭",
-    "You're breaking my heart 💔",
-    "I'm gonna cry... 😭💔",
-  ];
-  return messages[Math.min(noCount, messages.length - 1)];
-}
-
-function changeImage(image) {
-  img.src =
-    image === "yes"
-      ? "https://media.tenor.com/if3jhnXyiaUAAAAj/apple-cat.gif"
-      : tontonGifs[image];
-}
-
-function updateNoButtonText() {
-  noBtn.innerHTML = generateMessage(noCount);
-}
-
-function playSpotify() {
-  if (spotifyIframe) {
-    let src = spotifyIframe.src.split("?")[0]; // Remove existing query params
-    spotifyIframe.src = `${src}?autoplay=1&mute=0`; // Reload with autoplay enabled
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMG WHY R U HERE 😦</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <img
+        class="img"
+        src="https://media.tenor.com/TUVAE2M_wz4AAAAi/chubby-tonton.gif"
+        alt="tonton"
+      />
+      <p class="title">Heyy, do you want a valentines gift? 😦</p>
+      <div class="buttons">
+        <button type="button" class="btn btn-yes">Yes</button>
+        <button type="button" class="btn btn-no">No</button>
+      </div>
+      
+      <!-- Spotify Embed with Play Button -->
+      <iframe id="spotifyPlayer" 
+        src="https://open.spotify.com/embed/track/0rFOs9paloAvEtzwDX1Kmc" 
+        width="300" height="80" frameborder="0" allowtransparency="true" allow="autoplay; encrypted-media">
+      </iframe>
+      <button onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
+    </main>
+    
+    <script>
+      function playSpotify() {
+        let iframe = document.getElementById("spotifyPlayer");
+        let src = iframe.src;
+        iframe.src = ""; // Reset src to allow reloading
+        setTimeout(() => {
+          iframe.src = src + "?autoplay=1"; // Reload with autoplay
+        }, 100);
+      }
+    </script>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
