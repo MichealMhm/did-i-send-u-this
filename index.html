@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<html>
+    <body>
+        <h1>
+            
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OMG WHY R U HERE 😦</title>
+    <title>Heyy do you want a valentines gift? 😦</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,33 +18,16 @@
         src="https://media.tenor.com/TUVAE2M_wz4AAAAi/chubby-tonton.gif"
         alt="tonton"
       />
-      <p class="title">Heyy, do you want a valentines gift? 😦</p>
+      <p class="title">Heyy, do you want more spotify premium? 😦</p>
       <div class="buttons">
         <button type="button" class="btn btn-yes">Yes</button>
         <button type="button" class="btn btn-no">No</button>
       </div>
-      
-      <!-- Spotify Embed Player -->
-      <iframe id="spotifyPlayer" 
-        src="https://open.spotify.com/embed/track/0jcw8cJf3TNMZN0BXlueML" 
-        width="300" height="80" frameborder="0" allow="autoplay; encrypted-media">
-      </iframe>
-      <button id="spotifyButton" onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
     </main>
-    
-    <script>
-      function playSpotify() {
-        let iframe = document.getElementById("spotifyPlayer");
-        let button = document.getElementById("spotifyButton");
-        let src = iframe.src.split("?")[0];
-        iframe.src = ""; // Reset iframe source
-        setTimeout(() => {
-          iframe.src = `${src}?autoplay=1`;
-        }, 100); // Short delay to allow reload
-        button.style.display = "none"; // Hide button after clicking
-      }
-    </script>
-    
+
     <script src="script.js"></script>
   </body>
 </html>
+        </h1>
+    </body>
+</html>  
