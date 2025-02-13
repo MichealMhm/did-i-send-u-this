@@ -19,22 +19,24 @@
         <button type="button" class="btn btn-no">No</button>
       </div>
       
-      <!-- Spotify Embed with Play Button -->
+      <!-- Spotify Embed Player -->
       <iframe id="spotifyPlayer" 
-        src="https://open.spotify.com/embed/track/0rFOs9paloAvEtzwDX1Kmc" 
-        width="300" height="80" frameborder="0" allowtransparency="true" allow="autoplay; encrypted-media">
+        src="https://open.spotify.com/embed/track/0jcw8cJf3TNMZN0BXlueML" 
+        width="300" height="80" frameborder="0" allow="autoplay; encrypted-media">
       </iframe>
-      <button onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
+      <button id="spotifyButton" onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
     </main>
     
     <script>
       function playSpotify() {
         let iframe = document.getElementById("spotifyPlayer");
-        let src = iframe.src;
-        iframe.src = ""; // Reset src to allow reloading
+        let button = document.getElementById("spotifyButton");
+        let src = iframe.src.split("?")[0];
+        iframe.src = ""; // Reset iframe source
         setTimeout(() => {
-          iframe.src = src + "?autoplay=1"; // Reload with autoplay
-        }, 100);
+          iframe.src = `${src}?autoplay=1`;
+        }, 100); // Short delay to allow reload
+        button.style.display = "none"; // Hide button after clicking
       }
     </script>
     
