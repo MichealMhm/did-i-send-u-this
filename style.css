@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #3f373d, #614b5c);
+  background: linear-gradient(135def, #3f373d, #614b5c);
   font-family: "Poppins", serif;
   color: #745f5f;
   text-align: center;
@@ -71,7 +71,6 @@ body {
     transform: translateY(-2px);
   }
 }
-
 .btn-yes {
   background-color: #26953c;
   color: white;
@@ -82,23 +81,6 @@ body {
   color: white;
   transition: background-color 0.3s, transform 0.2s;
 }
-
-.btn-spotify {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #1DB954;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-spotify:hover {
-  background-color: #1aa34a;
-}
-
 .hidden {
   display: none;
 }
