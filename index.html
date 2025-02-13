@@ -19,10 +19,19 @@
         <button type="button" class="btn btn-no">No</button>
       </div>
       
-      <a href="https://open.spotify.com/track/0rFOs9paloAvEtzwDX1Kmc" target="_blank">
-        <button class="btn btn-spotify">Play on Spotify</button>
-      </a>
+      <!-- Spotify Embed with Play Button -->
+      <iframe id="spotifyPlayer" 
+        src="https://open.spotify.com/embed/track/0rFOs9paloAvEtzwDX1Kmc" 
+        width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
+      </iframe>
+      <button onclick="playSpotify()" class="btn btn-spotify">Click to Play Music</button>
     </main>
+    
+    <script>
+      function playSpotify() {
+        window.open("https://open.spotify.com/track/0rFOs9paloAvEtzwDX1Kmc", "_blank");
+      }
+    </script>
     
     <script src="script.js"></script>
   </body>
